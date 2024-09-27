@@ -15,14 +15,14 @@
     border-radius: 0 0 15px 15px;
 }
 
-/* Responsive for tablets and smaller screens */
+
 @media screen and (max-width: 1024px) {
     .topBackground {
         height: 500px;
     }
 }
 
-/* Responsive for mobile devices */
+
 @media screen and (max-width: 768px) {
     .topBackground {
         height: 400px;
@@ -34,7 +34,7 @@
     }
 }
 
-/* Very small mobile devices */
+
 @media screen and (max-width: 480px) {
     .topBackground {
         height: 300px;
