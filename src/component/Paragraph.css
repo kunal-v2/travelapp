@@ -1,19 +1,20 @@
 .Paragraph {
-    display: flex; /* Correct property is 'flex' */
+    display: flex;
     height: 250px;
     width: 100%;
-    align-items: center; /* Vertically center content */
-    justify-content: space-around;
+    align-items: center; /* Vertically centers content */
+    justify-content: space-around; /* Evenly spaces out content */
 }
-p{
+
+p {
     font-size: 25px;
-    font-style: bold;
+    font-weight: bold; /* Correct property for bold text */
 }
-h1{
+
+h1 {
     font-size: 50px;
     margin-left: 90px;
 }
-
 
 .btnn {
     background-color: black;
@@ -27,4 +28,47 @@ h1{
 
 .btnn:hover {
     background-color: #333; 
+}
+
+/* Responsive styling for different screen sizes */
+
+/* For tablet screens smaller than 768px */
+@media (max-width: 768px) {
+    .Paragraph {
+        flex-direction: column; /* Stack elements vertically */
+        height: auto; /* Let height adjust to content */
+    }
+
+    h1 {
+        font-size: 40px; /* Adjust heading size */
+        margin-left: 0; /* Remove margin for centering */
+    }
+
+    p {
+        font-size: 20px; /* Adjust paragraph font size */
+    }
+
+    .btnn {
+        margin: 20px 0; /* Center the button and add margin for spacing */
+        padding: 10px 20px; /* Increase button padding for touch devices */
+    }
+}
+
+/* For mobile screens smaller than 480px */
+@media (max-width: 480px) {
+    .Paragraph {
+        padding: 10px; /* Add padding for mobile */
+    }
+
+    h1 {
+        font-size: 30px; /* Further reduce heading size */
+    }
+
+    p {
+        font-size: 18px; /* Further reduce paragraph font size */
+    }
+
+    .btnn {
+        padding: 8px 15px; /* Adjust button padding */
+    }
 }
