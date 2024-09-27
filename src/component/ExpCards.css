@@ -1,0 +1,75 @@
+/* Cards container */
+.Cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+/* Individual card box */
+.box {
+  position: relative;
+  width: 250px;
+  height: 400px; /* Increased height to accommodate the title */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image styling */
+.box img {
+  width: 100%;
+  height: 100%; /* Adjust image height to leave space for the title */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Title styling */
+.cardTitle {
+  margin-top: -400px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+  padding: 10px 0;
+  background-color: #fff;
+}
+
+/* Card button styling */
+.cardButton {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effect */
+.cardButton:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .Cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box {
+    width: 90%;
+    height: 350px;
+  }
+}
