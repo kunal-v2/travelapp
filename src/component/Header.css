@@ -1,50 +1,80 @@
-/* Base styling remains as it is */
+/* Basic nav styling */
 nav {
   display: flex;
-  backdrop-filter: blur(30px);
-  box-shadow: 0px 0px 30px rgba(227,228,237,0.37);
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+  position: relative;
 }
 
-.logo {
+.header-content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .logo img {
   height: 60px;
   transform: scale(1.5);
   margin-right: 10px;
-  margin-top: -5px;
   transition: transform 0.3s ease;
 }
 
-ul {
+.CompanyName {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.CompanyName h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #090909;
+}
+
+/* Dropdown Menu Styling */
+.menu-container {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px rgba(227, 228, 237, 0.37);
+  width: 100%;
+  padding: 10px 0;
+  position: absolute;
+  top: 70px;
+  right: 0;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.menu {
   list-style: none;
   display: flex;
-  gap: 30px;
+  flex-direction: column;
+  gap: 15px;
   margin: 0;
   padding: 0;
 }
 
-ul li {
-  display: inline-block;
-}
-
-ul li a {
+.menu li a {
   text-decoration: none;
   color: #0d0d0d;
-  font-size: 20px;
+  font-size: 18px;
+  padding: 10px;
   transition: color 0.3s ease;
 }
 
-ul li a:hover {
-  color: #f4f3f0;
+.menu li a:hover {
+  background-color: #f4f3f0;
 }
 
-button {
+/* Button styling */
+button.login-button {
   background-color: transparent;
   color: #090909;
   border: none;
@@ -53,64 +83,63 @@ button {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  box-shadow: 20px 20px 30px rgba(227,228,237,0.37);
+  box-shadow: 20px 20px 30px rgba(227, 228, 237, 0.37);
 }
 
-button:hover {
-  background-color: rgba(227, 228, 237, 0.2); 
+button.login-button:hover {
+  background-color: rgba(227, 228, 237, 0.2);
   box-shadow: 20px 20px 50px rgba(227, 228, 237, 0.37);
 }
 
+/* The hamburger menu icon is visible across all screen sizes */
+.menu-icon {
+  display: block;
+  font-size: 30px;
+  cursor: pointer;
+  color: #090909;
+}
+
+/* Show menu when the class 'show-menu' is active */
+.show-menu {
+  display: flex;
+}
+
 /* Responsive design starts here */
-
-/* For tablets or screens smaller than 768px */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column; /* Stack the elements vertically */
-    align-items: flex-start; /* Align items to the left */
+  .menu {
+    flex-direction: column;
+    gap: 10px;
   }
 
-  ul {
-    flex-direction: column; /* Stack the menu items vertically */
-    gap: 15px; /* Reduce the gap between menu items */
+  .menu-container.show-menu {
+    display: flex;
   }
 
-  ul li a {
-    font-size: 18px; /* Slightly reduce the font size for smaller screens */
-  }
-
-  .logo img {
-    height: 50px; /* Reduce logo size */
-    transform: scale(1.2); /* Reduce scaling */
-  }
-
-  button {
-    padding: 8px 15px; /* Adjust button padding for smaller screens */
-    font-size: 14px; /* Reduce button font size */
+  .menu li a {
+    font-size: 16px;
   }
 }
 
-/* For mobile screens smaller than 480px */
-@media (max-width: 480px) {
-  nav {
-    padding: 10px; /* Reduce padding */
+/* For larger screens (laptops and desktops) */
+@media (min-width: 769px) {
+  .menu-container {
+    display: none; /* Initially hidden for all sizes */
+    flex-direction: column; /* Ensure it remains a dropdown on large screens */
+    width: auto;
+    padding: 10px 0;
+    box-shadow: none;
   }
 
-  ul {
-    gap: 10px; /* Further reduce the gap between items */
+  .menu {
+    flex-direction: column; /* Stack the items in the dropdown */
+    gap: 15px;
   }
 
-  ul li a {
-    font-size: 16px; /* Further reduce font size for mobile */
+  .menu-icon {
+    display: block; /* Ensure the icon is always visible */
   }
 
-  .logo img {
-    height: 40px; /* Reduce logo size further */
-    transform: scale(1); /* Remove scaling on small screens */
-  }
-
-  button {
-    padding: 6px 10px; /* Adjust button padding for small screens */
-    font-size: 12px; /* Further reduce button font size */
+  .menu-container.show-menu {
+    display: flex; /* Show the menu on larger screens when toggled */
   }
 }
